@@ -1,0 +1,243 @@
+body {
+    margin: 0;
+    padding: 0;
+    /* background: #70707071; */
+}
+
+.conteiner {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form,
+#formLogin {
+    height: 25vh;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #f4a259;
+    background: rgba(244, 225, 89, 0.3019607843);
+    border-radius: 50px;
+}
+#formLogin {
+    flex-direction: column;
+}
+
+.example_d,
+.example_d_log {
+    color: #F25C66 !important;
+    text-transform: uppercase;
+    padding: 20px;
+    margin: 5px;
+    border: 4px solid #F25C66 !important;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+
+.example_d:hover,
+.example_d_log:hover {
+    color: #494949 !important;
+    border-radius: 50px;
+    border-color: #494949 !important;
+    transition: all 0.3s ease 0s;
+}
+
+#textError {
+    color: red;
+    visibility: hidden;
+}
+#blockInput{
+    /* background: #f4e1594d; */
+}
+#blockInput input {
+    margin: 5px;
+    padding: 0;
+    width: 100px;
+    height: 25px;
+    /* border: none; */
+    border: 2px solid #F25C66;
+    background: #f4e15900;
+}
+
+
+.example_d_log {
+    padding: 10px;
+}
+
+/* novaposhtaTTH.html */
+#formTTH {
+    height: 50vh;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    border: 5px solid #f4a259;
+    background: #ffffff;
+    border-radius: 25px;
+}
+
+#logOut {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15px;
+}
+/* btn */
+#logOut button {
+    background: red;
+}
+.close-container {
+    /* position: relative; */
+    /* margin: auto; */
+    width: 25px;
+    height: 25px;
+    /* margin-top: 100px; */
+    cursor: pointer;
+}
+.leftright {
+    height: 4px;
+    width: 25px;
+    position: absolute;
+    margin-top: 10px;
+    background-color: #f4a259;
+    border-radius: 2px;
+    transform: rotate(45deg);
+    transition: all 0.3s ease-in;
+}
+.rightleft {
+    height: 4px;
+    width: 25px;
+    position: absolute;
+    margin-top: 10px;
+    background-color: #f4a259;
+    border-radius: 2px;
+    transform: rotate(-45deg);
+    transition: all 0.3s ease-in;
+}
+label {
+    color: rgb(0, 0, 0);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 0.6em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease-in;
+    opacity: 0;
+}
+.close{
+    margin: 20px 0 0 5px;
+    position: absolute;
+  }
+
+  .close-container:hover .leftright{
+    transform: rotate(-45deg);
+    background-color: #F25C66;
+  }
+  .close-container:hover .rightleft{
+    transform: rotate(45deg);
+    background-color: #F25C66;
+  }
+  .close-container:hover label{
+    opacity: 1;
+  }
+/* btn end */
+
+#globalInfo {
+    background: #f4e1594d;
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    /* border-bottom: 5px solid red; */
+    border-radius: 20px;
+    align-items: center;
+    overflow: hidden;
+    color:  #F25C66;
+}
+
+#infoTTH {
+    width: 60%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #F25C66;
+    border-radius: 25px;
+}
+
+#find {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+#find input {
+    margin: 5px;
+    padding: 0;
+    width: 200px;
+    height: 25px;
+    border: 2px solid #F25C66;
+    background: #f4e15900;
+    color: #F25C66;
+}
+#find button {
+    margin: 5px;
+    padding: 0;
+    /* width: 50px; */
+    height: 25px;
+    border: 2px solid #f4a259;
+    background: #f4a259;
+    color: white;
+}
+
+#listTTH {
+    width: 25%;
+    /* border: 2px solid slateblue; */
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 15px;
+    padding: 10px;
+    border: 2px solid #F25C66;
+    border-radius: 15px;
+    overflow-y: auto;
+}
+#listTTH li{
+    list-style-type: none;
+}
+#listTTH a {
+    cursor: pointer;
+}
+
+#listTTH a:hover {
+    text-decoration: underline;
+    color: #f4a259;
+}
+
+#find,
+#status {
+    /* border: 2px solid slateblue; */
+    margin: 10px;
+    width: 100%;
+}
+#find {
+    height: 10%;
+}
+#status {
+    height: 80%;
+}
+
+#errorFind {
+    visibility: hidden;
+   text-align: center;
+}
+
+#find input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
