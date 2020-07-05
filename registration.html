@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Login</title>
+    <title>Registration</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
-
+   
 </head>
-<body>
-    <script src="main.js"></script>
-    <script src='login.js' ></script>
 
+<body>
+    <script src='main.js'></script>
+    <script src='registration.js'></script>
     <div class="conteiner">
         <div id="formLogin">
-            <div >
+            <div>
                 <p id="textError">Логин или пароль введен не верно!</p>
             </div>
             <div>
@@ -22,12 +23,13 @@
                     <input id='inputId' type="text" name="username" placeholder="Username" required>
                     <input id='inputPass' type="password" name="password" placeholder="Password" required>
                 </div>
-                <div class="button_cont_log" align="center" onclick="clickToLogin()"><a class="example_d_log"
-                        rel="nofollow noopener" >Join</a>
+                <div class="button_cont_log" align="center" onclick="clickRegistration();"><a class="example_d_log"
+                        rel="nofollow noopener">Registration</a>
                 </div>
             </div>
 
         </div>
     </div>
 </body>
+
 </html>

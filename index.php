@@ -29,6 +29,7 @@ switch ($data['status']) {
         echo 'error';
         break;
 }
+
 function connectFun()
 {
     global $conn;
@@ -120,6 +121,7 @@ function registrationUser($login, $pass)
     echo json_encode($json);
 }
 // ---///--- end ---///---
+
 // ---***--- добавление tth в bd ---***---
 $isTTHInBD = false;
 
