@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>NovaPoshtaTTH</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script> -->
+</head>
+
+<body> 
+
+    <div class="conteiner">
+        <div id="formTTH">
+            <div id="logOut">
+                <div class="close-container" onclick="disconnect()">
+                    <div class="leftright"></div>
+                    <div class="rightleft"></div>
+                  </div>
+            </div>
+            <div id="globalInfo">
+                <div id="infoTTH">
+                    <p id="errorFind">111</p>
+                    <div id="find">
+
+                        <input id="valueTTH" type="number">
+                        <button onClick="find()">Get status TTH</button>
+                    </div>
+                    <div id="status">
+                        <p id="deliveryStatus">Статус доставки:</p>
+                        <p id="statusSent">Отправлено:</p>
+                        <p id="statusReceived">Получено:</p>
+                    </div>
+                </div>
+                <div id="listTTH">
+                    <p>История заказов</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src='main.js'></script> 
+    <script src='novaposhtaTTH.js'></script>
+</body>
+
+</html>
