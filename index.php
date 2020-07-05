@@ -29,3 +29,63 @@ switch ($data['status']) {
         echo 'error';
         break;
 }
+function connectFun()
+{
+    global $conn;
+    global $isMySQLOpen;
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    // $conn = new PDO("mysql:host=$servername;dbname=test", $username, $password);
+    try {
+        $isMySQLOpen = true;
+        $conn = new PDO("mysql:host=$servername;dbname=test", $username, $password);
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        // print_r("Connection failed: " . $e->getMessage());
+        $isMySQLOpen = false;
+    }
+}
+
+// ---+++--- проверка, есть ли такой пользователь ---+++---
+function verificationUser($login, $pass)
+{
+    // запрос к бд
+    global $conn;
+    global $isMySQLOpen;
+    connectFun();
+
+    if ($isMySQLOpen) {
+        $sql = 'SELECT login, password, id_u FROM users';
+        $arrayTTH = [];
+        $id_u = '';
+        $tth = [];
+        $isUserAvtorization = false;
+        foreach ($conn->query($sql) as $row) {
+            if ($row['login'] == $login && $row['password'] == $pass) {
+                $isUserAvtorization = true;
+                $id_u = $row['id_u'];
+            }
+        };
+        if ($isUserAvtorization) {
+            // если такой пользователь есть то в json нужно добавить все его TTH
+            $sql = 'SELECT user_id, tth FROM documents';
+            foreach ($conn->query($sql) as $row) {
+                if ($row['user_id'] == $id_u) {
+                    array_push($tth, $row['tth']);
+                }
+            };
+            $json = '{"isUserAvtorization":true,"arrTTH":[' . implode(",", $tth) . '],"login":"' . $login . '", "id_u": "' . $id_u . '"}';
+        } else {
+            $json = '{"isUserAvtorization":false}';
+        }
+      
+    } else {
+        $json = '{"mySQL":false}';
+    }
+    echo json_encode($json);
+}
+// ---+++--- end ---+++---
+
+
