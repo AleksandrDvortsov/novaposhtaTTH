@@ -160,3 +160,34 @@ function addTTH($id, $tth)
     $sql = 'INSERT INTO documents (tth, user_id) VALUE ("' . $tth . '","' . $id . '")';
 }
 // ---***--- end ---***---
+
+// ___ novaposhta Api ___
+// код скопирывал с postman*
+function requestToApi($tth)
+{
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.novaposhta.ua/v2.0/json/",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POSTFIELDS => "{\r\n    \"apiKey\": \"5923076292188b37a21ab7aba49e37dd\",\r\n    \"modelName\": \"TrackingDocument\",\r\n    \"calledMethod\": \"getStatusDocuments\",\r\n    \"methodProperties\": {\r\n        \"Documents\": [\r\n            {\r\n                \"DocumentNumber\": \"" . $tth . "\",\r\n                \"Phone\":\"\"\r\n            }\r\n        ]\r\n    }\r\n    \r\n}",
+        CURLOPT_HTTPHEADER => array(
+            "cache-control: no-cache",
+            "content-type: application/json",
+            "postman-token: 160eb9d0-4fa0-9c09-5a77-5f0480db1404"
+        ),
+    ));
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_close($curl);
+    echo json_encode($response);
+}
+// ___ end ___
