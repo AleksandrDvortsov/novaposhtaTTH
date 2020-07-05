@@ -105,7 +105,7 @@ function registrationUser($login, $pass)
             $id_u = $row['id_u'];
         }
     };
-
+    
     if (!$isSuchUser) {
         $sql = 'INSERT INTO users (login, password) VALUE ("' . $login . '","' . $pass . '")';
         $conn->query($sql);
