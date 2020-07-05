@@ -105,7 +105,7 @@ function registrationUser($login, $pass)
             $id_u = $row['id_u'];
         }
     };
-    
+
     if (!$isSuchUser) {
         $sql = 'INSERT INTO users (login, password) VALUE ("' . $login . '","' . $pass . '")';
         $conn->query($sql);
@@ -120,3 +120,43 @@ function registrationUser($login, $pass)
     echo json_encode($json);
 }
 // ---///--- end ---///---
+// ---***--- добавление tth в bd ---***---
+$isTTHInBD = false;
+
+function findTTHInBD($id, $tth)
+{
+    global $conn;
+    global $isTTHInBD;
+    $sql = 'SELECT user_id, tth FROM documents';
+    foreach ($conn->query($sql) as $row) {
+        if ($row['user_id'] == $id && $row['tth'] == $tth) {
+            $isTTHInBD = true;
+        }
+    };
+    return $isTTHInBD;
+}
+
+function addTTH($id, $tth)
+{
+    connectFun();
+    global $conn;
+
+    // проверка на то, есть ли он в bd
+    // если нет то аддБД + запрос
+    // если есть то просто запрос
+    if (findTTHInBD($id, $tth)) {
+        // echo 'true';
+        //если есть то просто запрос
+        echo requestToApi($tth);
+    } else {
+        // echo 'false';
+        $sql = 'INSERT INTO documents (tth, user_id) VALUE ("' . $tth . '","' . $id . '")';
+        $conn->query($sql);
+        echo requestToApi($tth);
+        // если нет то аддБД + запрос
+    }
+
+    $json = '{"param":"addTTH"}';
+    $sql = 'INSERT INTO documents (tth, user_id) VALUE ("' . $tth . '","' . $id . '")';
+}
+// ---***--- end ---***---
