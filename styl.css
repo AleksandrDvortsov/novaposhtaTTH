@@ -241,3 +241,32 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
+
+
+/* media */
+
+@media (max-width: 1360px) {
+    #formTTH{
+        width:  90%;
+    }
+}
+@media (max-width: 920px) {
+    #formTTH{
+        min-width:  890px;
+    }
+}
+@media (max-height: 800px) {
+    #formTTH{
+        min-height:  70vh;
+    }
+}
+@media (max-height: 550px) {
+    #formTTH{
+        min-height:  90vh;
+    }
+}
+@media (max-height: 450px) {
+    #formTTH{
+        min-height:  400px;
+    }
+}
