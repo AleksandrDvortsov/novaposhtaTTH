@@ -88,4 +88,35 @@ function verificationUser($login, $pass)
 }
 // ---+++--- end ---+++---
 
+// ---///--- регистрация нового пользователя в bd ---///---
+function registrationUser($login, $pass)
+{
+    connectFun();
+    global $conn;
 
+    $sql = 'SELECT login, id_u FROM users';
+    $isSuchUser = false;
+    $id_u = '';
+    foreach ($conn->query($sql) as $row) {
+        if ($row['login'] == $login) {
+            //'такой пользователь есть';
+            $isSuchUser = true;
+            $json = '{"isUserAvtorization":false, "param":"UserIsAlreadyDB"}';
+            $id_u = $row['id_u'];
+        }
+    };
+
+    if (!$isSuchUser) {
+        $sql = 'INSERT INTO users (login, password) VALUE ("' . $login . '","' . $pass . '")';
+        $conn->query($sql);
+        $sql = 'SELECT login, id_u FROM users';
+        foreach ($conn->query($sql) as $row) {
+            if ($row['login'] == $login) {
+                $id_u = $row['id_u'];
+                $json = '{"isUserAvtorization":true,"login":"' . $login . '", "id_u": "' . $id_u . '"}';
+            }
+        };
+    }
+    echo json_encode($json);
+}
+// ---///--- end ---///---
