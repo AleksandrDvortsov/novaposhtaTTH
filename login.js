@@ -9,7 +9,7 @@ function clickToLogin() {
     } else {
         textError.innerHTML = 'loading!';
         textError.style.visibility = 'visible';
-        fetch('http://localhost/phpTZ0407/index.php', {
+        fetch('http://localhost/novaposhtaTTH/index.php', {
             method: "POST",
             body: JSON.stringify({ status: 'login', login: loginValue, password: passwordValue }),
             headers: {
@@ -35,7 +35,7 @@ function clickToLogin() {
                 localStorage.setItem('id', USER_ID)
                 localStorage.setItem('isAvtorization', isAvtorization)
                 localStorage.setItem('arrTTH', JSON.stringify(param.arrTTH))
-                location.href = 'http://localhost/phpTZ0407/novaposhtaTTH.html';
+                location.href = 'http://localhost/novaposhtaTTH/novaposhtaTTH.html';
             }
 
         })

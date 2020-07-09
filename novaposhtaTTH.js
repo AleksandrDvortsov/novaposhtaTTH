@@ -32,7 +32,7 @@ function find() {
         console.log(' Запрос ')
         addToArr(tthFind);
         // запрос
-        fetch('http://localhost/phpTZ0407/index.php', {
+        fetch('http://localhost/novaposhtaTTH/index.php', {
             method: "POST",
             body: JSON.stringify({ status: 'addTTH', id_u: id_user, tth: tthFind.toString() }),
             headers: {
@@ -72,14 +72,14 @@ function createLiA(text) {
 function disconnect() {
     localStorage.clear();
     localStorage.setItem('isAvtorization', 'false')
-    location.href = 'http://localhost/phpTZ0407/index.html';
+    location.href = 'http://localhost/novaposhtaTTH/index.html';
 }
 
 function check() {
     let isAvtorization = localStorage.getItem('isAvtorization');
     if (isAvtorization === 'false' || isAvtorization === null) {
         localStorage.setItem('isAvtorization', 'false')
-        location.href = 'http://localhost/phpTZ0407/index.html';
+        location.href = 'http://localhost/novaposhtaTTH/index.html';
     } else {
 
         arrTHH = JSON.parse(localStorage.getItem('arrTTH'));

@@ -6,7 +6,7 @@ function clickRegistration() {
         textError.innerHTML = 'Заполните все поля!';
         textError.style.visibility = 'visible';
     } else {
-        fetch('http://localhost/phpTZ0407/index.php', {
+        fetch('http://localhost/novaposhtaTTH/index.php', {
             method: "POST",
             body: JSON.stringify({ status: 'registration', login: loginValue, password: passwordValue }),
             headers: {
@@ -26,7 +26,7 @@ function clickRegistration() {
                 localStorage.setItem('login', USER_LOGIN);
                 localStorage.setItem('id', USER_ID)
                 localStorage.setItem('isAvtorization', isAvtorization)
-                location.href = 'http://localhost/phpTZ0407/novaposhtaTTH.html';
+                location.href = 'http://localhost/novaposhtaTTH/novaposhtaTTH.html';
             }
         })
     }
