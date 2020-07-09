@@ -322,6 +322,7 @@ input::-webkit-inner-spin-button {
         height: 32px;
     }
 }
+
 @media (min-width: 375px) and (min-height:667px){
     #formTTH{
         min-width: 365px;
@@ -334,6 +335,7 @@ input::-webkit-inner-spin-button {
         min-height: 700px;
     }
 }
+
 @media (min-width: 375px) and (min-height:812px){
 
     #formTTH{
@@ -351,6 +353,7 @@ input::-webkit-inner-spin-button {
         min-height: 800px;
     }
 }
+
 @media (min-width: 411px) and (min-height:731px){
     #formTTH{
         min-width: 400px;
